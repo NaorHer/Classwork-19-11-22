@@ -1,0 +1,66 @@
+﻿<h3>Assignment2new</h3>
+
+@page "/Assingment2"
+
+
+<h3>assingment2</h3>
+<input type="text" @bind="typeNum" />
+<input type="button" value="pressme!" @onclick="myFunc1" />
+<ul>
+
+	@foreach(string country in resultList){
+		<li>
+			@country
+			
+		</li>
+	}
+	
+</ul>
+<span>@result</span>
+
+
+@code {
+	List<string> resultList = new List<string>();
+	string typeNum = "";
+	int convertReuslt = 0;
+	string result = "";
+	List<string> countrylist = new List<string>() { "Israel", "Canada", "France", "Italy", "Japan", "India", "Romania", "China", "Algeria", "Brazil" };
+
+
+	private void myFunc1()
+	{
+		result = "";
+		resultList.Clear();
+		convertReuslt = Convert.ToInt16(typeNum);
+		if (convertReuslt > 0 & convertReuslt < 11)
+		{
+
+			for (int i = 0; i < convertReuslt; i++)
+			{
+				//int stringlength = countrylist[i].Length;
+				//result += stringlength.ToString() + " " + countrylist[i];
+				resultList.Add(countrylist[i] + (countrylist[i].Length).ToString());
+
+			}
+
+
+		}
+		else
+		{
+
+			result = "put a number between 1 and 10";
+		}
+
+
+
+
+	}
+
+
+
+
+
+
+
+}
+
